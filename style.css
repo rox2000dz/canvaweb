@@ -1,0 +1,1207 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #e31837;
+    --hover-color: #ff1744;
+    --dark-black: #0f0f0f;
+    --black: #151515;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Almarai', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: #0a0a0a;
+    overflow-x: hidden;
+}
+
+/* تنسيق الخلفية */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+/* تنسيق المحتوى */
+.wrapper {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* تنسيق الناف بار الجديد */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 80%;
+}
+
+/* تنسيق التذييل */
+footer {
+    position: relative;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 100px 20px 10px;
+    background: radial-gradient(circle at top right, var(--black) 0%, var(--dark-black) 100%);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 60px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(227, 24, 55, 0.2) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+header h1 {
+    font-size: 4em;
+    background: linear-gradient(45deg, var(--white) 30%, var(--primary-color) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    animation: fadeInUp 1s ease;
+    transform: translateZ(var(--layer-distance));
+    text-shadow: 0 0 30px rgba(227, 24, 55, 0.7);
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 1.3em;
+    color: var(--white);
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease 0.2s backwards;
+    transform: translateZ(var(--layer-distance));
+}
+
+/* Features Section */
+.features {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features h2 {
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 3em;
+    position: relative;
+    padding-bottom: 15px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.features h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-red), var(--secondary-red));
+}
+
+.features ul {
+    list-style: none;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.features li {
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(20, 20, 20, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(227, 24, 55, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.features li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(227, 24, 55, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.features li:hover {
+    background: rgba(30, 30, 30, 0.95);
+    border-color: var(--primary-red);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(227, 24, 55, 0.3);
+}
+
+.features li:hover::before {
+    opacity: 1;
+}
+
+/* Join Section */
+.join {
+    text-align: center;
+    padding: 100px 20px;
+    background: radial-gradient(circle at center, var(--black) 0%, var(--dark-black) 100%);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.join::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(227, 24, 55, 0.3), transparent);
+}
+
+.join h2 {
+    color: var(--white);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(227, 24, 55, 0.3);
+}
+
+.join-button {
+    display: inline-block;
+    padding: 18px 50px;
+    background: linear-gradient(45deg, var(--primary-red), var(--secondary-red));
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    box-shadow: 0 10px 25px rgba(227, 24, 55, 0.4);
+    transform: translateZ(30px);
+    box-shadow: 0 10px 30px rgba(227, 24, 55, 0.4);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+
+.join-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.join-button:hover::before {
+    left: 100%;
+}
+
+.join-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(227, 24, 55, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--black);
+    margin-top: auto;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(227, 24, 55, 0.3), transparent);
+}
+
+.discord-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #f83a3a;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+}
+
+.discord-button:hover {
+    background: #ff8484;
+    transform: translateY(-2px);
+}
+
+.discord-button:hover::before {
+    left: 100%;
+}
+
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(227, 24, 55, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(227, 24, 55, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(227, 24, 55, 0);
+    }
+}
+
+/* Coming Soon Page */
+.coming-soon {
+    text-align: center;
+    padding: 120px 30px;
+    font-size: 28px;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+    margin: 60px auto;
+    max-width: 900px;
+    border-radius: 20px;
+    border: 1px solid rgba(227, 24, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(15px);
+    box-shadow: var(--depth-shadow);
+}
+
+.coming-soon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(227, 24, 55, 0.1), transparent 70%);
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.coming-soon::after {
+    content: 'قريباً...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(-20px);
+    color: rgba(227, 24, 55, 0.1);
+    font-size: 150px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.8rem;
+        width: 100%;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    header {
+        padding: 140px 20px 80px;
+    }
+
+    header h1 {
+        font-size: 3em;
+    }
+
+    .features ul {
+        grid-template-columns: 1fr;
+    }
+
+    .join {
+        padding: 80px 20px;
+    }
+
+    :root {
+        --layer-distance: 10px;
+    }
+
+    .features li:hover {
+        transform: translateY(-10px) translateZ(20px) rotateX(5deg);
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .features h2,
+    .join h2 {
+        font-size: 2em;
+    }
+
+    .coming-soon {
+        font-size: 24px;
+        padding: 80px 20px;
+    }
+
+    .navbar {
+        padding: 0.8rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+}
+
+/* إزالة تأثير المطر */
+.snow-container, .snow-fog {
+    display: none;
+}
+
+/* تحسين التأثيرات ثلاثية الأبعاد */
+.features li {
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--depth-shadow);
+    border: 1px solid rgba(227, 24, 55, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.features li:hover {
+    transform: translateY(-15px) translateZ(30px) rotateX(10deg);
+    border-color: var(--primary-red);
+    box-shadow: 0 15px 35px rgba(227, 24, 55, 0.3);
+}
+
+/* تحسين تأثير الضباب في الخلفية */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, 
+                rgba(227, 24, 55, 0.08) 0%, 
+                transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: fogMove 20s ease-in-out infinite alternate;
+    mix-blend-mode: overlay;
+}
+
+@keyframes fogMove {
+    0% {
+        transform: scale(1) translateX(0);
+    }
+    100% {
+        transform: scale(1.5) translateX(10%);
+    }
+}
+
+/* إضافة تنسيقات خلفية الفيديو */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(15, 15, 15, 0.85) 0%,
+        rgba(227, 24, 55, 0.15) 50%,
+        rgba(15, 15, 15, 0.85) 100%
+    );
+    backdrop-filter: blur(2px) contrast(110%);
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تنسيقات زر الموسيقى */
+.music-player {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    z-index: 1001;
+}
+
+.music-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-red), var(--secondary-red));
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(227, 24, 55, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.music-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 5px 20px rgba(227, 24, 55, 0.4);
+}
+
+.music-btn.playing {
+    animation: musicRotate 3s linear infinite;
+}
+
+@keyframes musicRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* تحديث الخلفيات لتكون شفافة */
+.navbar,
+.features li,
+.join,
+.coming-soon {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+header {
+    background: transparent;
+}
+
+/* تحسين التباين مع خلفية الفيديو */
+header h1,
+header p,
+.features h2,
+.join h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* تحسين التأثيرات الحركية */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+/* تحسين موضع العناوين */
+.store-page,
+.admin-apply-page,
+.suggestions-page,
+.terms-page,
+.profile-page {
+    padding-top: 120px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* تحسين تنسيق قريباً */
+.coming-soon {
+    margin-top: 40px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(227, 24, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+    font-size: 24px;
+    color: var(--white);
+    text-align: center;
+}
+
+.coming-soon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(227, 24, 55, 0.1),
+        transparent,
+        rgba(227, 24, 55, 0.1)
+    );
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* تحسين العناوين الرئيسية */
+.store-page h1,
+.admin-apply-page h1,
+.suggestions-page h1,
+.terms-page h1,
+.profile-page h1 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, var(--white) 30%, var(--primary-red) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* تنسيقات نموذج الاقتراحات */
+.suggestions-form {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(227, 24, 55, 0.2);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--white);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(227, 24, 55, 0.2);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 1em;
+    transition: all 0.3s ease;
+    resize: none;
+    height: 150px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 10px rgba(227, 24, 55, 0.2);
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #8B0000, var(--primary-red));
+    color: var(--white);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 0, 0, 0.4);
+}
+
+/* تحسين التجاوب */
+@media (max-width: 768px) {
+    .suggestions-form {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+/* إضافة الخطوط الجديدة */
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap');
+
+/* تحديث المتغيرات الأساسية */
+:root {
+    --primary-color: #e31837;
+    --hover-color: #ff1744;
+    --dark-black: #0f0f0f;
+    --black: #151515;
+    --white: #ffffff;
+}
+
+/* تحديث الخطوط الأساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Almarai', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* تحديث تنسيقات الناف بار */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+/* تحديث أزرار الشراء */
+.buy-now-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buy-now-btn:hover {
+    background: var(--hover-color);
+}
+
+/* تحديث لون السعر */
+.price {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+/* تحديث لون الأيقونات */
+.car-features i {
+    color: var(--primary-color);
+    width: 20px;
+    font-size: 1.1rem;
+}
+
+/* تحديث زر Discord */
+.discord-button {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+}
+
+/* تحديث العناوين */
+h1 {
+    font-size: 4em;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2.5em;
+    color: var(--white);
+    margin-bottom: 2rem;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+    font-size: 1.5em;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+}
+
+/* تحسين التجاوب للعناوين */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+}
+
+/* تحسين مظهر الأرقام */
+.price, .car-features li {
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}
+
+/* Suggestions Page Styles */
+.suggestions-page {
+    padding-top: 120px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.suggestions-page h1 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, var(--white) 30%, var(--primary-color) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.login-section {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(227, 24, 55, 0.2);
+    text-align: center;
+}
+
+.login-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.discord-login-btn {
+    background: linear-gradient(45deg, #7289DA, #5c6fb1);
+    color: var(--white);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(114, 137, 218, 0.3);
+}
+
+.discord-login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(114, 137, 218, 0.4);
+}
+
+.suggestions-form {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(227, 24, 55, 0.2);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 10px;
+    border: 1px solid rgba(227, 24, 55, 0.1);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.countdown {
+    margin-left: auto;
+    padding: 8px 15px;
+    background: rgba(227, 24, 55, 0.1);
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: var(--white);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--white);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(227, 24, 55, 0.2);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(227, 24, 55, 0.2);
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--hover-color));
+    color: var(--white);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(227, 24, 55, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(227, 24, 55, 0.4);
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toast {
+    background: rgba(30, 30, 30, 0.95);
+    color: var(--white);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+}
+
+.toast.success {
+    border-right: 4px solid #4CAF50;
+}
+
+.toast.error {
+    border-right: 4px solid #f44336;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .suggestions-page {
+        padding: 100px 20px 40px;
+    }
+
+    .suggestions-page h1 {
+        font-size: 2.5em;
+    }
+
+    .suggestions-form,
+    .login-section {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .user-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .countdown {
+        margin: 10px 0 0;
+    }
+}
