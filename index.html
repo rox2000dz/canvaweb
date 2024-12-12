@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرفر الحياة الواقعية MTA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop id="myVideo">
+            <source src="https://r2.guns.lol/cb5f1c13-d65e-48a3-bd76-15bf7cb3fa19.mov" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+            <audio id="bgMusic" loop>
+                <source src="https://r2.guns.lol/23e0aed5-ee3e-414d-88ed-bd582e3fdb52.mp3" type="audio/mp3">
+            </audio>
+        </button>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="store.html">المتجر</a></li>
+            <li><a href="admin-apply.html">تقديم الرقابة الإدارية</a></li>
+            <li><a href="terms.html">الشروط والأحكام</a></li>
+            <li><a href="suggestions.html">الاقتراحات</a></li>
+            <li><a href="profile.html">حسابي الشخصي</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>MTA Web Side</h1>
+    </header>
+
+    <main>
+        <section class="features">
+            <h2>مميزات السيرفر</h2>
+            <ul>
+                <li>وظائف متعددة ومتنوعة</li>
+                <li>نظام اقتصادي متكامل</li>
+                <li>سيارات واقعية</li>
+                <li>نظام منازل متطور</li>
+                <li>إدارة نشطة ومتفاعلة</li>
+                <li>حياه واقعيه جديده</li>
+            </ul>
+        </section>
+
+      
+    </main>
+
+    <footer>
+        <p>تواصل معنا </p>
+        <a href="https://discord.gg/" class="discord-button">Discord</a>
+    </footer>
+
+    <script>
+        const musicBtn = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.classList.remove('playing');
+            } else {
+                bgMusic.play();
+                musicBtn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html> 
